@@ -12,7 +12,7 @@ export default [
         component: AddData
     },
     {
-        path: `/update`,
+        path: `/update/:id`,
         component: UpdateData
     }
 

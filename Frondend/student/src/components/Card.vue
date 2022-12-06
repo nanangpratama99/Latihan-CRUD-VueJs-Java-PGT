@@ -13,7 +13,7 @@
 
         <div class="row">
           <div class="d-flex row mt-3">
-            <router-link to="/update">
+            <router-link :to="{ path: '/update/' + item.id }">
               <button type="submit" class="btn btn-primary row ml-4">
                 Update
               </button>

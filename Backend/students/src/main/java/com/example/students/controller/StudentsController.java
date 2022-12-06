@@ -17,7 +17,7 @@ import com.example.students.model.Students;
 import com.example.students.service.IStudentsService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8083")
 @RequestMapping("/api/students")
 public class StudentsController {
 
@@ -42,5 +42,10 @@ public class StudentsController {
     @DeleteMapping("/delete/{id}")
     public Students deleteStudents(@PathVariable int id) {
         return studentsService.deleteStudents(id);
+    }
+
+    @GetMapping("/student/{id}")
+    public Students getStudents(@PathVariable int id) {
+        return studentsService.getStudent(id);
     }
 }

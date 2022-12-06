@@ -102,7 +102,7 @@
           rows="3"
         ></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">{{ buttonValue }}</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
     <!--  -->
@@ -133,7 +133,6 @@ export default {
         umur: null,
       },
       success: false,
-      buttonValue: "Submit",
     };
   },
 
@@ -144,11 +143,16 @@ export default {
       StudentServices.create(data)
         .then((response) => {
           console.log(response.data);
+          this.success = true;
         })
         .catch((e) => {
           console.log(e);
         });
     },
+  },
+  created() {
+    console.log(this.$route.params.id);
+    // mounted,method get student pake params id,if else statemen param set judul dan button
   },
 };
 </script>

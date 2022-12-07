@@ -5,6 +5,9 @@
     <router-link to="/" v-if="Judul === 'Submit'">
       <button class="btn btn-primary m-3">Back</button>
     </router-link>
+    <router-link to="/" v-else-if="Judul === 'Update'">
+      <button class="btn btn-primary m-3">Back</button>
+    </router-link>
     <button class="btn btn-primary" @click="RefreshFunc" v-else>Refresh</button>
   </div>
 </template>

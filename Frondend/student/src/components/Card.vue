@@ -6,7 +6,7 @@
 
     <div class="container d-flex flex-wrap justify-content-center">
       <div
-        class="card m-3 col-3"
+        class="card m-3 col-4"
         v-for="item in studentData"
         :key="item.id"
         v-show="!success"
@@ -22,11 +22,9 @@
           <p>Interest : {{ item.interest }}</p>
 
           <div class="row">
-            <div class="d-flex row mt-3">
-              <router-link :to="{ path: '/update/' + item.id }">
-                <button type="submit" class="btn btn-primary row ml-4">
-                  Update
-                </button>
+            <div class="d-flex mt-3">
+              <router-link :to="{ path: '/update/' + item.id }" type="submit" class="btn btn-primary ml-4">
+                Update
               </router-link>
               <button
                 type="submit"

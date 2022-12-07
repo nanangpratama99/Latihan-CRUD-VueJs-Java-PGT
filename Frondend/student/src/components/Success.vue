@@ -1,13 +1,13 @@
 <template>
   <div class="cards">
-    <div class="card-body border border-primary">
+    <div class="card-body">
       <h5 class="card-title">Success!</h5>
       <p class="card-text">Your Data Has Been {{ Judul }} !</p>
       <router-link to="/" v-if="Judul === 'Submit'">
-        <button class="btn btn-primary m-3 ml-3">Back</button>
+        <button class="btn btn-primary mt-3 ml-3">Back</button>
       </router-link>
       <router-link to="/" v-else-if="Judul === 'Update'">
-        <button class="btn btn-primary m-3 ml-3">Back</button>
+        <button id="btn" class="btn btn-primary mt-3 ml-3">Back</button>
       </router-link>
       <button class="btn btn-primary" @click="RefreshFunc" v-else>
         Refresh
@@ -59,5 +59,13 @@ export default {
 
 .cards {
   border-radius: 10px;
+  border: 1px solid blue;
+  margin-top: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+#btn {
+  margin-left: 100px;
 }
 </style>

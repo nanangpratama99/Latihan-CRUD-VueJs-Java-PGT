@@ -10,7 +10,9 @@
         v-show="!success"
         class="border border-primary mt-5 col-8 p-5 rounded"
       >
+      <div clas>
         <h4>Add Student</h4>
+      </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="name">Student Name</label>
@@ -107,7 +109,7 @@
             rows="3"
           ></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">{{ buttonValue }}</button>
       </form>
 
       <!--  -->
@@ -139,6 +141,7 @@ export default {
         umur: null,
       },
       success: false,
+      buttonValue: "Submit",
     };
   },
 
@@ -171,6 +174,9 @@ export default {
     // Update
     getDataByid() {
       let getData = this.$route.params.id;
+      if (getData > 0) {
+        this.buttonValue = "Update";
+      }
 
       StudentServices.getData(getData).then((response) => {
         this.studentData = response.data;
@@ -179,7 +185,7 @@ export default {
     },
   },
   mounted() {
-    if ((this.$route.params.id > 0)) {
+    if (this.$route.params.id > 0) {
       this.getDataByid();
     }
   },

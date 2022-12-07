@@ -2,7 +2,7 @@
   <div class="">
     <BennerImage class="img"></BennerImage>
 
-    <div class="card">
+    <div class="">
       <Card class="col-12 m-3"></Card>
     </div>
     <Footer></Footer>

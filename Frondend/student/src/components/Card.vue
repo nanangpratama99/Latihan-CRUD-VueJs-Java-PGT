@@ -1,55 +1,72 @@
 <template>
   <div>
-    <router-link to="/add" v-show="!success">
-      <button class="btn btn-primary my-3 ml-3">Add Data</button>
-    </router-link>
+    <div>
+      <router-link to="/add" v-show="!success">
+        <button class="btn btn-primary my-3 ml-3">Add</button>
+      </router-link>
+    </div>
 
-    <div class="container d-flex flex-wrap justify-content-center">
+    <div v-if="studentData.length > 0" class="card-container d-flex flex-wrap">
       <div
-        class="card m-3 col-4"
+        class="col-4 mt-4"
         v-for="item in studentData"
         :key="item.id"
         v-show="!success"
       >
-        <div class="card-body">
-          <h5 class="card-title mb-3">
-            {{ item.nama + ", " + item.umur + " years old" }}
-          </h5>
-
-          <p>Email : {{ item.email }}</p>
-          <p>Soft Skill : {{ item.soft_skill }}</p>
-          <p>Hard Skill : {{ item.hard_skill }}</p>
-          <p>Interest : {{ item.interest }}</p>
-
-          <div class="row">
-            <div class="d-flex mt-3">
-              <router-link :to="{ path: '/update/' + item.id }" type="submit" class="btn btn-primary ml-4">
-                Update
+        <div class="card p-3">
+          <h5>{{ item.nama }}, {{ item.umur }} years old.</h5>
+          <p>{{ item.deskripsi_diri }}</p>
+          <table>
+            <tr>
+              <td>Email</td>
+              <td>: {{ item.email }}</td>
+            </tr>
+            <tr>
+              <td>Soft Skill</td>
+              <td>: {{ item.soft_skill }}</td>
+            </tr>
+            <tr>
+              <td>Hard Skill</td>
+              <td>: {{ item.hard_skill }}</td>
+            </tr>
+            <tr>
+              <td>Interest</td>
+              <td>: {{ item.interest }}</td>
+            </tr>
+          </table>
+          <div class="d-flex justify-content-between mt-3">
+            <div>
+              <router-link :to="{ path: '/update/' + item.id }">
+                <button id="btns" class="btn btn-primary mr-2">Update</button>
               </router-link>
-              <button
-                type="submit"
-                @click="deleteStudentFunc(item.id)"
-                class="btn btn-danger"
-              >
-                Delete
-              </button>
-              <img
-                v-if="item.jenis_kelamin === 'Male'"
-                class="img-gender"
-                src="../assets/male.png"
-                alt=""
-              />
-              <img
-                v-else
-                class="img-gender"
-                src="../assets/female.png"
-                alt=""
-              />
+              <router-link to="/">
+                <button
+                  class="btn btn-danger"
+                  @click="deleteStudentFunc(item.id)"
+                >
+                  Delete
+                </button>
+              </router-link>
             </div>
+            <img
+              v-if="item.jenis_kelamin == 'Male'"
+              :class="item.jenis_kelamin"
+              src="@/assets/male.png"
+              alt=""
+            />
+            <img
+              v-else
+              :class="item.jenis_kelamin"
+              src="@/assets/female.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
       <Success v-show="success"></Success>
+    </div>
+    <div v-else>
+      <h1 align="center">Tidak ada data yang ditampilkan!</h1>
     </div>
   </div>
 </template>
@@ -107,19 +124,18 @@ export default {
 };
 </script>
 
-<style scoped>
-.img {
+<style>
+img {
   width: 50px;
-}
-
-.img-gender {
-  width: 40px;
   height: auto;
-  justify-content: flex-end;
-  margin-left: 50px;
+}
+.Female {
+  width: auto;
+  height: 50px;
 }
 
-.btn {
-  margin: 5px;
+.card {
+  border: 1px solid #007bff;
+  border-radius: 20px;
 }
-</style>>
+</style>

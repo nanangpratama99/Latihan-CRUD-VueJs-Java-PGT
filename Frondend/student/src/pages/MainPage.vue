@@ -1,9 +1,7 @@
 <template>
   <div class="">
     <BennerImage class="img"></BennerImage>
-    <router-link to="/add">
-      <button class="btn btn-primary my-3 ml-3">Add Data</button>
-    </router-link>
+
     <div class="card">
       <Card class="col-12 m-3"></Card>
     </div>

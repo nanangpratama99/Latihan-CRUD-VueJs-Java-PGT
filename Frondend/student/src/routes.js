@@ -1,6 +1,5 @@
 import MainPage from "./pages/MainPage.vue"
 import AddData from "./pages/AddData.vue"
-import UpdateData from "./pages/UpdateData.vue"
 
 export default [
     {
@@ -13,7 +12,7 @@ export default [
     },
     {
         path: `/update/:id`,
-        component: UpdateData
+        component: AddData
     }
 
 ]

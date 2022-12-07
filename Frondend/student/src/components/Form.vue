@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-link to="/">
-      <button class="btn btn-primary m-3" v-show="!success">Back</button>
+      <button class="btn btn-primary m-3 ml-3" v-show="!success">Back</button>
     </router-link>
 
     <div class="d-flex justify-content-around">
@@ -179,7 +179,9 @@ export default {
     },
   },
   mounted() {
-    this.getDataByid();
+    if ((this.$route.params.id > 0)) {
+      this.getDataByid();
+    }
   },
 
   created() {

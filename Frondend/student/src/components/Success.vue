@@ -1,14 +1,18 @@
 <template>
-  <div class="card-body">
-    <h5 class="card-title">Success!</h5>
-    <p class="card-text">Your Data Has Been {{ Judul }} !</p>
-    <router-link to="/" v-if="Judul === 'Submit'">
-      <button class="btn btn-primary m-3">Back</button>
-    </router-link>
-    <router-link to="/" v-else-if="Judul === 'Update'">
-      <button class="btn btn-primary m-3">Back</button>
-    </router-link>
-    <button class="btn btn-primary" @click="RefreshFunc" v-else>Refresh</button>
+  <div class="cards">
+    <div class="card-body border border-primary">
+      <h5 class="card-title">Success!</h5>
+      <p class="card-text">Your Data Has Been {{ Judul }} !</p>
+      <router-link to="/" v-if="Judul === 'Submit'">
+        <button class="btn btn-primary m-3 ml-3">Back</button>
+      </router-link>
+      <router-link to="/" v-else-if="Judul === 'Update'">
+        <button class="btn btn-primary m-3 ml-3">Back</button>
+      </router-link>
+      <button class="btn btn-primary" @click="RefreshFunc" v-else>
+        Refresh
+      </button>
+    </div>
   </div>
 </template>
 
@@ -51,5 +55,9 @@ export default {
 
 .bg-color-pink {
   background-color: #f9cada;
+}
+
+.cards {
+  border-radius: 10px;
 }
 </style>
